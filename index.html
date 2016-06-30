@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MinoTauR</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: auto;
+            image-rendering: optimizeSpeed;
+            -webkit-interpolation-mode: nearest-neighbor;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <script type="text/javascript" src="game.min.js"></script>
+	<!-- script type="text/javascript" src="lib/impact/impact.js"></script -->
+	<!-- script type="text/javascript" src="lib/game/main.js"></script -->
+
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+
+    <script type="text/javascript">
+        function toggleFullScreen() {
+            if( !document.fullscreenElement &&
+            !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
+        
+                if( document.documentElement.requestFullscreen ) { document.documentElement.requestFullscreen(); }
+                else if( document.documentElement.msRequestFullscreen ) { document.documentElement.msRequestFullscreen(); }
+                else if( document.documentElement.mozRequestFullScreen ) { document.documentElement.mozRequestFullScreen(); }
+                else if( document.documentElement.webkitRequestFullscreen ) { document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT); }
+            } else {
+        
+                if( document.exitFullscreen ) { document.exitFullscreen(); }
+                else if( document.msExitFullscreen ) { document.msExitFullscreen(); }
+                else if( document.mozCancelFullScreen ) { document.mozCancelFullScreen(); }
+                else if( document.webkitExitFullscreen ) { document.webkitExitFullscreen(); }
+            }
+        }
+        document.addEventListener("keydown", function(e) {
+            if( e.keyCode == 84 ) { toggleFullScreen(); }
+        }, false);
+    </script>
+
+</body>
+</html>
